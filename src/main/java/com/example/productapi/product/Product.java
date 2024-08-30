@@ -82,13 +82,13 @@ public class Product {
 
     @Override
     public String toString() {
-        return "\n\tproduct {" +
-                "\r\n\t\tid= " + getId() +
-                ",\r\n\t\tcreatedAt= " + getCreationTime() +
-                ",\r\n\t\tupdatedAt= " + getUpdateTime() +
-                ",\r\n\t\tname= '" + getName() +
-                "',\r\n\t\tprice= " + getPrice() +
-                ",\r\n\t\tdescription= '" + getDescription() + "'\r\n\t}";
+        return "\nproduct {" +
+                " id= " + getId() +
+                ", createdAt= " + getCreationTime() +
+                ", updatedAt= " + getUpdateTime() +
+                ", name= '" + getName() +
+                "', price= " + getPrice() +
+                ", description= '" + getDescription() + "'}";
     }
 
 }

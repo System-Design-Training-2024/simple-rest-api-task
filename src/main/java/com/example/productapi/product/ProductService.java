@@ -31,28 +31,29 @@ public class ProductService {
     public Product getProductById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
         if (productOptional.isEmpty())
-            throw new IllegalStateException("Product not found (by ID).");
-        return productRepository.findById(id).get();
+            throw new IllegalStateException("Product (ID) not found.");
+        return productOptional.get();
     }
 
-    public void updateProduct(Long id, Product newProductInfo) {
-        Optional<Product> existingProduct = productRepository.findbyId(id);
+    public Product updateProduct(Long id, Product newProductInfo) {
+        Optional<Product> existingProduct = productRepository.findById(id);
         if (existingProduct.isEmpty())
-            throw new IllegalStateException("Product not found (by ID).");
+            throw new IllegalStateException("Product (ID) not found.");
+        Product p = existingProduct.get();
         if (newProductInfo.getName() != null)
-            existingProduct.setName(newProductInfo.getName());
+            p.setName(newProductInfo.getName());
         if (newProductInfo.getDescription() != null)
-            existingProduct.setDescription(newProductInfo.getDescription());
+            p.setDescription(newProductInfo.getDescription());
         if (newProductInfo.getPrice() != null)
-            existingProduct.setPrice(newProductInfo.getPrice());
-        productRepository.save(existingProduct);
-
+            p.setPrice(newProductInfo.getPrice());
+        productRepository.save(p);
+        return p;
     }
 
     public void deleteProductById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
         if (productOptional.isEmpty()) {
-            throw new IllegalStateException("Product not found (by ID).");
+            throw new IllegalStateException("Product (ID) not found.");
         }
         productRepository.deleteById(id);
     }

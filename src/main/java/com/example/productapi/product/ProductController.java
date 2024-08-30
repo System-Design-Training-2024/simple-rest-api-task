@@ -23,7 +23,7 @@ public class ProductController {
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         try { 
            productService.createProduct(product);
-        } catch (IllegalStatusException e) {
+        } catch (IllegalStateException e) {
           return ResponseEntity.notFound().build();
         }
         return new ResponseEntity<>(product, HttpStatus.CREATED);
@@ -31,20 +31,24 @@ public class ProductController {
 
     // Get all products
     @GetMapping
-    public ResponseEntity<String> getAllProducts() {
-        List<Product> productList = productService.getAllProducts();
-        if (productList.isEmpty())
+    public ResponseEntity<List<Product>> getAllProducts() {
+        try {
+            List<Product> productList = productService.getAllProducts();
+            return new ResponseEntity<>(productList, HttpStatus.OK);
+        } catch (IllegalStateException e) {
             return ResponseEntity.notFound().build();
-        return new ResponseEntity<>(productList, HttpStatus.OK);
+        }
     }
 
     // Get a product by ID
     @GetMapping("/{id}")
-    public ResponseEntity<String> getProductByID(@PathVariable("id") Long id) {
-        Product product = productService.getProductById(id);
-        if (product == null)
+    public ResponseEntity<Product> getProductByID(@PathVariable("id") Long id) {
+        try {
+            Product product = productService.getProductById(id);
+            return new ResponseEntity<>(product, HttpStatus.OK);
+        } catch (IllegalStateException e) {
             return ResponseEntity.notFound().build();
-        return new ResponseEntity<>(product, HttpStatus.OK);
+        }
     }
 
     // Update a product
@@ -53,21 +57,22 @@ public class ProductController {
             @PathVariable("id") Long id,
             @RequestBody Product product) {
         try {
-            productService.updateProduct(id, product);
-        } catch (IllegalStatusException e) {
+            Product p = productService.updateProduct(id, product);
+            return new ResponseEntity<>(p, HttpStatus.CREATED);
+        } catch (IllegalStateException e) {
             return ResponseEntity.notFound().build();
         }
-        return new ResponseEntity<>(p, HttpStatus.CREATED);
     }
 
 
     // Delete a product
     @DeleteMapping("/{id}")
     public ResponseEntity<Product> deleteProduct(@PathVariable("id") Long id) {
-        Product p = productService.getProductById(id);
-        if (p == null)
+        try {
+            productService.deleteProductById(id);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalStateException e) {
             return ResponseEntity.notFound().build();
-        productService.deleteProductById(id);
-        return ResponseEntity.noContent().build();
+        }
     }
 }
