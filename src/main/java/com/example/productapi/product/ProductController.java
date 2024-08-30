@@ -21,7 +21,11 @@ public class ProductController {
     // Create a new product
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        productService.createProduct(product);
+        try { 
+           productService.createProduct(product);
+        } catch (IllegalStatusException e) {
+          return ResponseEntity.notFound().build();
+        }
         return new ResponseEntity<>(product, HttpStatus.CREATED);
     }
 
@@ -31,7 +35,7 @@ public class ProductController {
         List<Product> productList = productService.getAllProducts();
         if (productList.isEmpty())
             return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(productList.toString());
+        return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 
     // Get a product by ID
@@ -40,7 +44,7 @@ public class ProductController {
         Product product = productService.getProductById(id);
         if (product == null)
             return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(product.toString());
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
     // Update a product
@@ -48,11 +52,11 @@ public class ProductController {
     public ResponseEntity<Product> updateProduct(
             @PathVariable("id") Long id,
             @RequestBody Product product) {
-        Product p = productService.getProductById(id);
-        if (p == null)
+        try {
+            productService.updateProduct(id, product);
+        } catch (IllegalStatusException e) {
             return ResponseEntity.notFound().build();
-
-        productService.updateProduct(id, product);
+        }
         return new ResponseEntity<>(p, HttpStatus.CREATED);
     }
 
