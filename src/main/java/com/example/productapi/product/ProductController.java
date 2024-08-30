@@ -53,13 +53,7 @@ public class ProductController {
         Product p = productService.getProductById(id);
         if (p == null)
             return ResponseEntity.notFound().build();
-        if (product.getName() != null)
-            p.setName(product.getName());
-        if (product.getDescription() != null)
-            p.setDescription(product.getDescription());
-        if (product.getPrice() != null)
-            p.setPrice(product.getPrice());
-        productRepository.save(p);
+        productService.updateProduct(p, product);
         return new ResponseEntity<>(p, HttpStatus.CREATED);
     }
 
