@@ -1,0 +1,118 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ahmad_jaradat1\\ahmad_jaradat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|d:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\controllers\\productsoperationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|solutionrelative:ahmad_jaradat\\controllers\\productsoperationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|d:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\db\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|solutionrelative:ahmad_jaradat\\db\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|d:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\domain\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|solutionrelative:ahmad_jaradat\\domain\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|d:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\migrations\\20240829120531_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|solutionrelative:ahmad_jaradat\\migrations\\20240829120531_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|d:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|solutionrelative:ahmad_jaradat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|d:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D45320A8-63AF-492D-A8E7-345BF3A2CC6E}|ahmad_jaradat\\ahmad_jaradat.csproj|solutionrelative:ahmad_jaradat\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\Program.cs",
+              "RelativeDocumentMoniker": "ahmad_jaradat\\Program.cs",
+              "ToolTip": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\Program.cs",
+              "RelativeToolTip": "ahmad_jaradat\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T12:55:10.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "productsOperationsController.cs",
+              "DocumentMoniker": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\Controllers\\productsOperationsController.cs",
+              "RelativeDocumentMoniker": "ahmad_jaradat\\Controllers\\productsOperationsController.cs",
+              "ToolTip": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\Controllers\\productsOperationsController.cs",
+              "RelativeToolTip": "ahmad_jaradat\\Controllers\\productsOperationsController.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAA5wF0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T12:36:58.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20240829120531_init.cs",
+              "DocumentMoniker": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\Migrations\\20240829120531_init.cs",
+              "RelativeDocumentMoniker": "ahmad_jaradat\\Migrations\\20240829120531_init.cs",
+              "ToolTip": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\Migrations\\20240829120531_init.cs",
+              "RelativeToolTip": "ahmad_jaradat\\Migrations\\20240829120531_init.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwBMAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T12:05:32.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\Domain\\Product.cs",
+              "RelativeDocumentMoniker": "ahmad_jaradat\\Domain\\Product.cs",
+              "ToolTip": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\Domain\\Product.cs",
+              "RelativeToolTip": "ahmad_jaradat\\Domain\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T11:48:45.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\appsettings.json",
+              "RelativeDocumentMoniker": "ahmad_jaradat\\appsettings.json",
+              "ToolTip": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\appsettings.json",
+              "RelativeToolTip": "ahmad_jaradat\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-29T11:42:58.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\DB\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "ahmad_jaradat\\DB\\AppDbContext.cs",
+              "ToolTip": "D:\\ahmad_jaradat1\\ahmad_jaradat\\ahmad_jaradat\\DB\\AppDbContext.cs",
+              "RelativeToolTip": "ahmad_jaradat\\DB\\AppDbContext.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAADUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T11:40:34.718Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
