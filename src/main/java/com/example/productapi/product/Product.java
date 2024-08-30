@@ -39,7 +39,7 @@ public class Product {
 
     public String getUpdateTime() {
         if (updatedAt == null) {
-            return null;
+            updatedAt = createdAt;
         }
         return updatedAt.format(DateTimeFormatter.ISO_DATE_TIME);
     }
