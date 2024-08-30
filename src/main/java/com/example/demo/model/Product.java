@@ -18,11 +18,13 @@ public class Product {
 
     private String description;
 
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     private Double price;
 
+    @Column(nullable = false, updatable = false)
     private Timestamp createdAt;
 
+    @Column(nullable = false)
     private Timestamp updatedAt;
 
     public Product() {
