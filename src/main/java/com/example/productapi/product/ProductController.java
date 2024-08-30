@@ -12,12 +12,10 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
-    private final ProductRepository productRepository;
 
     @Autowired
-    public ProductController(ProductService productService, ProductRepository productRepository) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
-        this.productRepository = productRepository;
     }
 
     // Create a new product
@@ -53,7 +51,8 @@ public class ProductController {
         Product p = productService.getProductById(id);
         if (p == null)
             return ResponseEntity.notFound().build();
-        productService.updateProduct(p, product);
+
+        productService.updateProduct(id, product);
         return new ResponseEntity<>(p, HttpStatus.CREATED);
     }
 
