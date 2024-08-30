@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 @Entity
 @Table
 public class Product {
-    @Column(nullable = false)
+    @Column
     private LocalDateTime createdAt;
     @Id
     @Column
@@ -18,7 +18,7 @@ public class Product {
     private String name;
     @Column(nullable = false, unique = true)
     private Double price;
-    @Column(nullable = false)
+    @Column
     private LocalDateTime updatedAt;
     @Column
     private String description;
