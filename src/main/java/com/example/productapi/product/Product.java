@@ -1,7 +1,6 @@
 package com.example.productapi.product;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -12,11 +11,16 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private final LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    @Column(nullable = false)
     private String name;
-    private String description;
+    @Column(nullable = false)
     private Double price;
+    @Column
+    private final LocalDateTime createdAt;
+    @Column
+    private LocalDateTime updatedAt;
+    @Column
+    private String description;
 
     public Product() {
         createdAt = LocalDateTime.now();
