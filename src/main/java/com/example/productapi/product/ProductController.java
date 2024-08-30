@@ -21,10 +21,10 @@ public class ProductController {
     // Create a new product
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        try { 
-           productService.createProduct(product);
+        try {
+            productService.createProduct(product);
         } catch (IllegalStateException e) {
-          return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
         return new ResponseEntity<>(product, HttpStatus.CREATED);
     }
@@ -32,12 +32,8 @@ public class ProductController {
     // Get all products
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
-        try {
-            List<Product> productList = productService.getAllProducts();
-            return new ResponseEntity<>(productList, HttpStatus.OK);
-        } catch (IllegalStateException e) {
-            return ResponseEntity.notFound().build();
-        }
+        List<Product> products = productService.getAllProducts();
+        return ResponseEntity.ok(products);
     }
 
     // Get a product by ID

@@ -1,23 +1,24 @@
 package com.example.productapi.product;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table
 public class Product {
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private Double price;
-    @Column
-    private final LocalDateTime createdAt;
-    @Column
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
     @Column
     private String description;
@@ -33,8 +34,7 @@ public class Product {
         this.name = name;
         this.price = price;
         this.description = description;
-        this.createdAt = LocalDateTime.now();
-        setUpdateTime();
+        this.createdAt = this.updatedAt = LocalDateTime.now();
     }
 
     private void setUpdateTime() {
@@ -43,12 +43,15 @@ public class Product {
 
     public String getUpdateTime() {
         if (updatedAt == null) {
-            updatedAt = createdAt;
+            updatedAt = LocalDateTime.now();
         }
         return updatedAt.format(DateTimeFormatter.ISO_DATE_TIME);
     }
 
     public String getCreationTime() {
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
         return createdAt.format(DateTimeFormatter.ISO_DATE_TIME);
     }
 
