@@ -35,6 +35,20 @@ public class ProductService {
         return productRepository.findById(id).get();
     }
 
+    public void updateProduct(Long id, Product newProductInfo) {
+        Optional<Product> existingProduct = productRepository.findbyId(id);
+        if (existingProduct.isEmpty())
+            throw new IllegalStateException("Product not found (by ID).");
+        if (newProductInfo.getName() != null)
+            existingProduct.setName(newProductInfo.getName());
+        if (newProductInfo.getDescription() != null)
+            existingProduct.setDescription(newProductInfo.getDescription());
+        if (newProductInfo.getPrice() != null)
+            existingProduct.setPrice(newProductInfo.getPrice());
+        productRepository.save(existingProduct);
+
+    }
+
     public void deleteProductById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
         if (productOptional.isEmpty()) {
