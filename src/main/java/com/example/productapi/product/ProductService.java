@@ -17,10 +17,10 @@ public class ProductService {
     }
 
     public void createProduct(Product product) {
-        Optional<Product> productOptional = productRepository.findByProductName(product.getName());
-        if (productOptional.isPresent()) {
-            throw new IllegalStateException("Product already exists (by name).");
-        }
+        // !! It is ok to have multiple products with the same name, each new product has its own unique ID.
+        // Optional<Product> productOptional = productRepository.findByProductName(product.getName());
+        // if (productOptional.isPresent())
+            // throw new IllegalStateException("Product already exists (by name).");
         productRepository.save(product);
     }
 
