@@ -19,7 +19,7 @@ public class ProductService {
     public void createProduct(Product product) {
         Optional<Product> productOptional = productRepository.findByProductName(product.getName());
         if (productOptional.isPresent()) {
-            throw new IllegalStateException("Product already exists");
+            throw new IllegalStateException("Product already exists (by name).");
         }
         productRepository.save(product);
     }
@@ -28,17 +28,17 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Product getProductById(long id) {
+    public Product getProductById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
         if (productOptional.isEmpty())
-            throw new IllegalStateException("Product not found");
+            throw new IllegalStateException("Product not found (by ID).");
         return productRepository.findById(id).get();
     }
 
     public void deleteProductById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
         if (productOptional.isEmpty()) {
-            throw new IllegalStateException("Product not found");
+            throw new IllegalStateException("Product not found (by ID).");
         }
         productRepository.deleteById(id);
     }
