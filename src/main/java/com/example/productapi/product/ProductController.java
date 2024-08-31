@@ -41,7 +41,7 @@ public class ProductController {
     public ResponseEntity<Product> getProductByID(@PathVariable("id") Long id) {
         try {
             Product product = productService.getProductById(id);
-            return new ResponseEntity<>(product, HttpStatus.OK);
+            return ResponseEntity.ok(product);
         } catch (IllegalStateException e) {
             return ResponseEntity.notFound().build();
         }
@@ -50,10 +50,12 @@ public class ProductController {
     // Update a product
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(
-            @PathVariable("id") Long id,
-            @RequestBody Product product) {
+            @PathVariable Long id,
+            @RequestBody(required = false) String name,
+            @RequestBody(required = false) String description,
+            @RequestBody(required = false) Double price) {
         try {
-            Product p = productService.updateProduct(id, product);
+            Product p = productService.updateProduct(id, name, description, price);
             return new ResponseEntity<>(p, HttpStatus.CREATED);
         } catch (IllegalStateException e) {
             return ResponseEntity.notFound().build();

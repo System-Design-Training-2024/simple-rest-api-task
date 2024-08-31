@@ -35,17 +35,17 @@ public class ProductService {
         return productOptional.get();
     }
 
-    public Product updateProduct(Long id, Product newProductInfo) {
+    public Product updateProduct(Long id, String name, String description, Double price) {
         Optional<Product> existingProduct = productRepository.findById(id);
         if (existingProduct.isEmpty())
             throw new IllegalStateException("Product (ID) not found.");
         Product p = existingProduct.get();
-        if (newProductInfo.getName() != null)
-            p.setName(newProductInfo.getName());
-        if (newProductInfo.getDescription() != null)
-            p.setDescription(newProductInfo.getDescription());
-        if (newProductInfo.getPrice() != null)
-            p.setPrice(newProductInfo.getPrice());
+        if (name != null)
+            p.setName(name);
+        if (description != null)
+            p.setDescription(description);
+        if (price != null)
+            p.setPrice(price);
         productRepository.save(p);
         return p;
     }
