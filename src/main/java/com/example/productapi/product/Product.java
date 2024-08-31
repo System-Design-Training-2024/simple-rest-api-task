@@ -8,12 +8,11 @@ import java.time.format.DateTimeFormatter;
 @Entity
 @Table
 public class Product {
-    @Column
-    private LocalDateTime createdAt;
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
@@ -31,6 +30,9 @@ public class Product {
     public Product(String name,
                    Double price,
                    String description) {
+        if (name == null || price == null) {
+            throw new IllegalArgumentException();
+        }
         this.name = name;
         this.price = price;
         this.description = description;

@@ -1,6 +1,7 @@
 package com.example.productapi.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +24,8 @@ public class ProductController {
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         try {
             productService.createProduct(product);
-        } catch (IllegalStateException e) {
-            return ResponseEntity.notFound().build();
+        } catch (DataIntegrityViolationException | IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
         }
         return new ResponseEntity<>(product, HttpStatus.CREATED);
     }
@@ -51,11 +52,13 @@ public class ProductController {
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(
             @PathVariable Long id,
-            @RequestBody(required = false) String name,
-            @RequestBody(required = false) String description,
-            @RequestBody(required = false) Double price) {
+            @RequestBody ProductTemp productTemp) {
         try {
-            Product p = productService.updateProduct(id, name, description, price);
+            Product p = productService.updateProduct(id,
+                    productTemp.getName(),
+                    productTemp.getProductDescription(),
+                    productTemp.getProductPrice());
+
             return new ResponseEntity<>(p, HttpStatus.CREATED);
         } catch (IllegalStateException e) {
             return ResponseEntity.notFound().build();
