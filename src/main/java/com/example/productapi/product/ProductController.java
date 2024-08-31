@@ -1,6 +1,7 @@
 package com.example.productapi.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +19,10 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productService.createProduct(product);
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+        Product createdProduct = productService.createProduct(product);
+        return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
-
 
     @GetMapping
     public List<Product> getAllProducts() {
@@ -29,17 +30,27 @@ public class ProductController {
     }
 
     @GetMapping(path = "{productId}")
-    public Product getProduct(@PathVariable Long productId) {
-       return productService.getProduct(productId);
+    public ResponseEntity<Product> getProduct(@PathVariable Long productId) {
+        Product product = productService.getProduct(productId);
+        if (product != null) {
+            return new ResponseEntity<>(product, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PutMapping(path = "{productId}")
-    public Product updateProduct(@PathVariable Long productId, @RequestBody Product productDetails) {
-        return productService.updateProduct(productId, productDetails);
+    public ResponseEntity<Product> updateProduct(@PathVariable Long productId, @RequestBody Product productDetails) {
+        Product updatedProduct = productService.updateProduct(productId, productDetails);
+        if (updatedProduct != null) {
+            return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping(path = "{productId}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable("productId") Long productId) {
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long productId) {
         boolean isDeleted = productService.deleteProduct(productId);
 
         if (isDeleted) {
@@ -47,6 +58,5 @@ public class ProductController {
         } else {
             return ResponseEntity.notFound().build();
         }
-
     }
 }

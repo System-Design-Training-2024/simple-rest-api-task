@@ -36,11 +36,16 @@ public class Product {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @Column
+    @Column(nullable = false)
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
     public Product() {
+    }
+
+    public Product(String name, BigDecimal price) {
+        this.name = name;
+        this.price = price;
     }
 
     public Product(String name, String description, BigDecimal price) {
