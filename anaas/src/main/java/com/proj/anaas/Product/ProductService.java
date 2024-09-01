@@ -27,14 +27,9 @@ public class ProductService {
     }
     public Product NewProduct(Product product) {
         if(product.getName() != null && product.getName().length() > 0 && product.getDescription() != null && product.getDescription().length() > 0 && product.getPrice() > 0){
-            Optional<Product> b = productReposirory.findProductByname(product.getName());
-            if(b.isPresent()){
-                throw new IllegalStateException("The Product name and description are required");
-            }else {
-                return productReposirory.save(product);
-            }
+            return productReposirory.save(product);
         }else{
-            throw new IllegalStateException("The Product name and description are required");
+            throw new IllegalStateException("The Product name and description and price are required");
         }
     }
     public void DeleteProduct(Long id) {
@@ -51,19 +46,21 @@ public class ProductService {
             throw new IllegalStateException("The Product with id = " + id + " does not exist");
         }else{
             Product prod = productReposirory.findById(id).orElse(null);
-            if(product.getName() != null) {
+            if(product.getName() != null && product.getName().length() > 0) {
                 prod.setName(product.getName());
             }
             else{
                 throw new IllegalStateException("Name can not be Null");
             }
-            if(product != null) {
+            if(product.getDescription() != null && product.getDescription().length() > 0) {
                 prod.setDescription(product.getDescription());
             }else{
                 throw new IllegalStateException("Description can not be Null");
             }
             if(product.getPrice() != 0) {
                 prod.setPrice(product.getPrice());
+            }else{
+                throw new IllegalStateException("Price is unaccepted");
             }
             return productReposirory.save(prod);
         }
