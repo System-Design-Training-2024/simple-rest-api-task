@@ -31,6 +31,9 @@ public class ProductService {
 
     public void createProduct(Product product) {
         Optional<Product> productById = productRepository.findById(product.getId());
+        if(product.getPrice() == 0) {
+            throw new IllegalArgumentException("Price cannot be zero or missing. Please provide a valid price.");
+        }
         productRepository.save(product);
     }
 
