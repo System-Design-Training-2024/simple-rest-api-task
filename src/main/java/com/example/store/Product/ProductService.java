@@ -29,7 +29,7 @@ public class ProductService {
 
         if (to_find != null)
             return ResponseEntity.ok(to_find);
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.notFound().build(); // 404
     }
 
     public ResponseEntity<Product> update(@PathVariable Long id, @RequestBody Product product) {
