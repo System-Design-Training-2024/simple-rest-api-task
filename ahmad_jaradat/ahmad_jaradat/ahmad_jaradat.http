@@ -1,0 +1,6 @@
+@ahmad_jaradat_HostAddress = http://localhost:5253
+
+GET {{ahmad_jaradat_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
