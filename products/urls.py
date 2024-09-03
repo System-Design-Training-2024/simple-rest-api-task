@@ -10,6 +10,8 @@ urlpatterns = [
 from .views import  ProductCreateView, ProductUpdateView
 
 urlpatterns = [
-    path('products/', ProductListView.as_view(), name='product-list'),  # List and create
-    path('products/<int:pk>/', ProductRetrieveView.as_view(), name='product-detail'),  # Retrieve and update
+    path('products/get-all/', ProductListView.as_view(), name='product-list'),  # List and create
+    path('products/create/', ProductCreateView.as_view(), name='create-product'),  # create
+    path('products/update/<int:pk>/', ProductUpdateView.as_view(), name='update-product'),  # create
+    path('products/get-one/<int:pk>/', ProductRetrieveView.as_view(), name='product-detail'),  # Retrieve and update
 ]

@@ -38,9 +38,7 @@ class ProductRetrieveView(View):
         return JsonResponse(product_data)
 
 
-
 class ProductCreateView(View):
-    @method_decorator(csrf_exempt)  # Exempt CSRF checks for this example
     def post(self, request):
         data = json.loads(request.body)
         name = data.get('name')
@@ -69,10 +67,10 @@ class ProductCreateView(View):
 
 # products/views.py
 class ProductUpdateView(View):
-    @method_decorator(csrf_exempt)  # Exempt CSRF checks for this example
     def put(self, request, pk):
         product = get_object_or_404(Product, pk=pk)
         data = json.loads(request.body)
+
 
         name = data.get('name')
         description = data.get('description')
