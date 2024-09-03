@@ -8,7 +8,7 @@ import java.util.List;
 // Api layer
 
 @RestController
-@RequestMapping(path = "products")
+@RequestMapping(path = "/products")
 public class ProductController {
 
     ProductService productService;
