@@ -1,6 +1,7 @@
 # products/views.py
-from django.http import JsonResponse
+
 from django.views import View
+from django.http import JsonResponse, HttpResponse
 from django.views.generic.edit import CreateView
 from .models import Product
 from django.shortcuts import get_object_or_404
@@ -94,3 +95,15 @@ class ProductUpdateView(View):
             'updated_at': product.updated_at.isoformat()
         }
         return JsonResponse(product_data)
+
+
+
+
+class ProductDeleteView(View):
+    def delete(self, request, pk):
+        if request.method == 'DELETE':
+            product = get_object_or_404(Product, pk=pk)
+            product.delete()
+            return HttpResponse(status=204)  # Return 204 No Content to indicate success
+        else:
+            return JsonResponse({'error': 'Method not allowed'}, status=405)

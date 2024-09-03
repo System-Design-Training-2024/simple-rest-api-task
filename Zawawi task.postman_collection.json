@@ -124,6 +124,41 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"3rd Product Name\",\r\n  \"description\": \"Updated description\",\r\n  \"price\": 29.99\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/delete/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"delete",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
