@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -34,8 +35,8 @@ public class ProductController {
 
     @PostMapping
     public void AddProduct(@RequestBody Product product){
-        product.setCreated_at(LocalDate.now());
-        product.setUpdated_at(LocalDate.now());
+        product.setCreated_at(LocalDateTime.now());
+        product.setUpdated_at(LocalDateTime.now());
         productRepository.save(product);
     }
 
@@ -48,7 +49,7 @@ public class ProductController {
         updateProduct.setName(NewProduct.getName());
         updateProduct.setDescription(NewProduct.getDescription());
         updateProduct.setPrice(NewProduct.getPrice());
-        updateProduct.setUpdated_at(LocalDate.now());
+        updateProduct.setUpdated_at(LocalDateTime.now());
 
         productRepository.save(updateProduct);
 
