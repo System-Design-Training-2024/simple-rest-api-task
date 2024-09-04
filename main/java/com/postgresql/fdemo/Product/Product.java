@@ -3,7 +3,9 @@ package com.postgresql.fdemo.Product;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Repository;
 
+import java.text.DateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table (name = "product")
@@ -26,8 +28,8 @@ public class Product {
     private String name ;
     private String description ;
     private Double price ;
-    private LocalDate created_at ;
-    private LocalDate updated_at  ;
+    private LocalDateTime created_at ;
+    private LocalDateTime updated_at  ;
 
 
     public Product() {
@@ -38,8 +40,9 @@ public class Product {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.created_at = LocalDate.now();
-        this.updated_at = LocalDate.now();
+        this.created_at = LocalDateTime.now();
+        this.updated_at = LocalDateTime.now();
+
     }
 
     public Long getId() {
@@ -74,19 +77,19 @@ public class Product {
         this.price = price;
     }
 
-    public LocalDate getCreated_at() {
+    public LocalDateTime getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(LocalDate created_at) {
+    public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
     }
 
-    public LocalDate getUpdated_at() {
+    public LocalDateTime getUpdated_at() {
         return updated_at;
     }
 
-    public void setUpdated_at(LocalDate updated_at) {
+    public void setUpdated_at(LocalDateTime updated_at) {
         this.updated_at = updated_at;
     }
 
