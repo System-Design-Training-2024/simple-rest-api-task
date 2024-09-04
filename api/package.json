@@ -1,0 +1,7 @@
+{ 
+  "dependencies": {
+    "express": "^4.19.2",
+    "random_numbers_generator": "^2.0.0"
+    
+  }
+}
