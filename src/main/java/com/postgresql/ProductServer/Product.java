@@ -2,6 +2,8 @@ package com.postgresql.ProductServer;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -21,8 +23,8 @@ public class Product {
     private String name;
     private String description;
     private Double price;
-    private Date created_at;
-    private Date updated_at;
+    private LocalDateTime created_at;
+    private LocalDateTime updated_at;
 
     public Product() {
     }
@@ -31,8 +33,8 @@ public class Product {
         this.price = price;
         this.description = description;
         this.name = name;
-        this.created_at = new Date();
-        this.updated_at = new Date();
+        this.created_at = LocalDateTime.now();
+        this.updated_at = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -63,20 +65,20 @@ public class Product {
         this.price = price;
     }
 
-    public Date getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
-    }
-
-    public Date getUpdated_at() {
+    public LocalDateTime getUpdated_at() {
         return updated_at;
     }
 
-    public void setUpdated_at(Date updated_at) {
+    public void setUpdated_at(LocalDateTime updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
     }
 
     @Override
